@@ -56,7 +56,6 @@ LGraph ReadG(){
     for(int i=0; i<Ne; i++){
         int v1, v2;
         scanf("%d %d", &v1, &v2);
-        v1--;
         PtrToAdjVNode newNode = (PtrToAdjVNode)malloc(sizeof(struct AdjVNode));
         newNode->AdjV = v2;
         newNode->Next = Graph->G[v1].FirstEdge;
@@ -78,7 +77,7 @@ bool IsTopSeq( LGraph Graph, Vertex Seq[] ){
             return false;
         }
         else{
-            for (PtrToAdjVNode p=Graph->G[Seq[i]-1].FirstEdge;p!=NULL;p=p->Next){
+            for (PtrToAdjVNode p=Graph->G[Seq[i]].FirstEdge;p!=NULL;p=p->Next){
             inv[p->AdjV]--;
         }
         }
